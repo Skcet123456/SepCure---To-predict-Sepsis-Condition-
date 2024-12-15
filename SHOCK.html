@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Septic Shock</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='shock_styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+      <div class="brand-title">SEPTIC SHOCK</div>
+      <form action="{{ url_for('predict2') }}" method="post">
+          <label>BP-SYSTOLIC</label>
+          <input type="text" name="bpSystolic" placeholder="Enter the BP-Systolic" required="required" />
+          <label>URINE OUTPUT</label>
+          <input type="text" name="urineOutput" placeholder="Enter the Urine Output" required="required" />
+          <label>CREATININE</label>
+          <input type="text" name="creatinine" placeholder="Enter the Creatinine" required="required" />
+          <label>BILIRUBIN RATE</label>
+          <input type="text" name="bilirubinRate" placeholder="Enter the Bilirubin Rate" required="required" />
+          <label>PLATELETS RATE</label>
+          <input type="text" name="plateletsRate" placeholder="Enter the Platelets Rate" required="required" />
+          <label>BP-DIASTOLIC</label>
+          <input type="text" name="bpDiastolic" placeholder="Enter the BP-Diastolic" required="required" />
+          <label>GLUCOSE</label>
+          <input type="text" name="glucose" placeholder="Enter the Glucose" required="required" />
+          <label>LACTATE</label>
+          <input type="text" name="lactate" placeholder="Enter the Lactate" required="required" />
+          <label>INR</label>
+          <input type="text" name="inr" placeholder="Enter the INR" required="required" />
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>  
+      <br>
+      <div class="highlight-text">{{ prediction_severe }}</div>
+    </div>
+    
+    
+</body>
+
+</html>

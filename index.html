@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepsis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sepsis_styles.css') }}">
+</head>
+
+<body>
+    <!-- {% if 'username' in session %}
+    <a href="/logout" class="logout-button">Logout</a>
+    {% endif %} -->
+
+    <div class="container">
+        <div class="brand-title">SEPSIS ANALYSIS</div>
+        <form id="sepsisForm" action="{{ url_for('predict')}}" method="post">
+            <label>RESPIRATORY RATE</label>
+            <input type="text" name="respiratoryRate" placeholder="Enter the Respiratory Rate" required="required" />
+            <label>HEART RATE</label>
+            <input type="text" name="heartRate" placeholder="Enter the Heart Rate" required="required" />
+            <label>WBC COUNT</label>
+            <input type="text" name="wbcCount" placeholder="Enter the WBC Count" required="required" />
+            <label>TEMPERATURE</label>
+            <input type="text" name="temperature" placeholder="Enter the Temperature" required="required" />
+            <label>CRP</label>
+            <input type="text" name="crp" placeholder="Enter the CRP" required="required" />
+            <label>CONSCIOUS</label>
+            <input type="text" name="conscious" placeholder="Enter the Conscious" required="required" />
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <div id="predict_text">
+        {% if prediction_text %}
+        <p>{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

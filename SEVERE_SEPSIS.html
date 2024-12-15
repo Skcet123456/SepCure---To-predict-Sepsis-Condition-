@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Severe Sepsis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sever_sepsis_styles.css') }}">
+</head>
+<body>
+  <div class="container">
+
+    <h1>OOPS!! SEPSIS HAS BEEN DETECTED. LET'S CHECK THE STAGE</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict1') }}" method="post">
+        <input type="text" name="urineOutput" placeholder="Enter the Urine Output" required="required" />
+        <input type="text" name="spo2" placeholder="Enter the SPO2" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    
+    <br>
+      {{ prediction_severe }}
+    
+  </div>
+  
+</body>
+
+</html>
